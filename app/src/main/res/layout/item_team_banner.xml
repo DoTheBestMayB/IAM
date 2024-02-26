@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/rectangle"
     android:layout_height="match_parent">
 
 
@@ -10,11 +11,10 @@
         android:id="@+id/picture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:textSize="40sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/introduction"
+        app:layout_constraintTop_toBottomOf="@id/introduction"
         tools:text="😀" />
 
     <TextView
@@ -32,14 +32,15 @@
         android:id="@+id/introduction"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:textSize="18sp"
-        android:maxLines="2"
-        android:ellipsize="end"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
-        tools:text="안녕하세요. 저는 김민수 입니다. 안녕하세요. 저는 김민수 입니다. 안녕하세요. 저는 김민수 입니다."
-        app:layout_constraintStart_toStartOf="@id/picture"
-        app:layout_constraintTop_toBottomOf="@id/picture" />
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="안녕하세요. 저는 김민수 입니다. 안녕하세요. 저는 김민수 입니다. 안녕하세요. 저는 김민수 입니다." />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
