@@ -1,6 +1,7 @@
 package com.im.im.detail
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.im.im.model.Role
@@ -37,10 +38,33 @@ class UserInfoViewModel: ViewModel() {
     val info: LiveData<List<UserInfo>>
         get() = _info
 
+    private val _currentBannerPosition = MutableLiveData<Int>()
+    val currentBannerPosition: LiveData<Int>
+        get() = _currentBannerPosition
+
+    private val _bannerPositionInfo = MediatorLiveData<Pair<Int, Int>>()
+    val bannerPositionInfo: LiveData<Pair<Int, Int>>
+        get() = _bannerPositionInfo
+
+    init {
+        _bannerPositionInfo.addSource(_info) {
+            val (current, _) = _bannerPositionInfo.value ?: (0 to 0)
+            _bannerPositionInfo.value = current to it.size
+        }
+        _bannerPositionInfo.addSource(_currentBannerPosition) {
+            val (_, all) = _bannerPositionInfo.value ?: (0 to 0)
+            _bannerPositionInfo.value = it to all
+        }
+    }
+
 
     fun getUser(name: String): UserInfo = userInfo[name] ?: throw IllegalArgumentException()
 
     fun init() {
         _info.value = userInfo.values.toList()
+    }
+
+    fun updateCurrentPosition(position: Int) {
+        _currentBannerPosition.value = position
     }
 }

@@ -27,8 +27,7 @@ class IntroFragment : Fragment(), UserItemListener, BannerLocationListener {
     }
 
     override fun changedTo(position: Int) {
-        val sizeOfAll = userInfoViewModel.info.value?.size ?: throw IllegalArgumentException() // ViewModel 값을 꺼내 오는 게 맞나?
-        changeExpandBannerButton(position, sizeOfAll)
+        userInfoViewModel.updateCurrentPosition(position + 1)
     }
 
     override fun onCreateView(
@@ -73,10 +72,19 @@ class IntroFragment : Fragment(), UserItemListener, BannerLocationListener {
     private fun setObserve() {
         userInfoViewModel.info.observe(viewLifecycleOwner) {
             bannerAdapter.submitList(it)
-            binding.expandBannerButton.visibility =
-                if (it.isNotEmpty()) View.VISIBLE else View.INVISIBLE
-            changeExpandBannerButton(1, it.size)
+            userInfoViewModel.updateCurrentPosition(1)
         }
+
+        userInfoViewModel.bannerPositionInfo.observe(viewLifecycleOwner) {
+            val (currentPosition, maxSize) = it
+            if (currentPosition == 0 || maxSize == 0) {
+                binding.expandBannerButton.visibility = View.INVISIBLE
+                return@observe
+            }
+            binding.expandBannerButton.visibility = View.VISIBLE
+            changeExpandBannerButton(currentPosition, maxSize)
+        }
+
     }
 
     private fun changeExpandBannerButton(index: Int, sizeOfAll: Int) {

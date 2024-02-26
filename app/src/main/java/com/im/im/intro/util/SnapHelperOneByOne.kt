@@ -33,7 +33,7 @@ class SnapHelperOneByOne(
             currentPosition = firstPosition
         }
 
-        bannerLocationListener.changedTo(currentPosition + 1)
+        bannerLocationListener.changedTo(currentPosition)
         return currentPosition
     }
 }
