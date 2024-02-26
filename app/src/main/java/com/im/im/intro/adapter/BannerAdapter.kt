@@ -40,8 +40,6 @@ class BannerAdapter(
 
     override fun onBindViewHolder(holder: BannerViewHolder, position: Int) {
         holder.bind(getItem(position))
-
-        userItemListener.changedTo(position)
     }
 
     companion object {

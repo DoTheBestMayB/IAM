@@ -9,9 +9,10 @@ import androidx.fragment.app.activityViewModels
 import com.im.im.databinding.FragmentIntroBinding
 import com.im.im.detail.UserInfoViewModel
 import com.im.im.intro.adapter.BannerAdapter
+import com.im.im.intro.util.SnapHelperOneByOne
 import com.im.im.model.UserInfo
 
-class IntroFragment : Fragment(), UserItemListener {
+class IntroFragment : Fragment(), UserItemListener, BannerLocationListener {
 
     private var _binding: FragmentIntroBinding? =
         null // Fragment view보다 Fragment의 lifecycle이 길기 때문에 memory leak을 방지하기 위해 null처리 필요
@@ -26,7 +27,7 @@ class IntroFragment : Fragment(), UserItemListener {
     }
 
     override fun changedTo(position: Int) {
-        val sizeOfAll = userInfoViewModel.info.value?.size ?: throw IllegalArgumentException()
+        val sizeOfAll = userInfoViewModel.info.value?.size ?: throw IllegalArgumentException() // ViewModel 값을 꺼내 오는 게 맞나?
         changeExpandBannerButton(position, sizeOfAll)
     }
 
@@ -62,6 +63,7 @@ class IntroFragment : Fragment(), UserItemListener {
     private fun setBanner() {
         bannerAdapter = BannerAdapter(this)
         binding.recyclerviewBanner.adapter = bannerAdapter
+        SnapHelperOneByOne(this).attachToRecyclerView(binding.recyclerviewBanner)
     }
 
     private fun loadData() {
