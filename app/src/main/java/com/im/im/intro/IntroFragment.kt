@@ -33,10 +33,10 @@ class IntroFragment : Fragment() {
         setMarquee()
     }
 
-    override fun onDestroy() {
+    override fun onDestroyView() {
         _binding = null // Fragment view보다 Fragment의 lifecycle이 길기 때문에 memory leak을 방지하기 위해 null처리 필요
 
-        super.onDestroy()
+        super.onDestroyView()
     }
 
     private fun setMarquee() {
