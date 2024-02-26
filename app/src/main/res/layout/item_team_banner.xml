@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="😀" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@id/picture"
+        app:layout_constraintStart_toEndOf="@id/picture"
+        app:layout_constraintTop_toTopOf="@id/picture"
+        tools:text="김민수" />
+
+    <TextView
+        android:id="@+id/introduction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textSize="18sp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="30dp"
+        tools:text="안녕하세요. 저는 김민수 입니다. 안녕하세요. 저는 김민수 입니다. 안녕하세요. 저는 김민수 입니다."
+        app:layout_constraintStart_toStartOf="@id/picture"
+        app:layout_constraintTop_toBottomOf="@id/picture" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

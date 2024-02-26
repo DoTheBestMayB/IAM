@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.im.im.databinding.FragmentIntroBinding
 import com.im.im.detail.UserInfoViewModel
+import com.im.im.intro.adapter.BannerAdapter
 
 class IntroFragment : Fragment() {
 
@@ -29,6 +30,7 @@ class IntroFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setMarquee()
     }
 
     override fun onDestroy() {
@@ -36,4 +38,9 @@ class IntroFragment : Fragment() {
 
         super.onDestroy()
     }
+
+    private fun setMarquee() {
+        binding.textViewTeam.isSelected = true
+    }
+
 }

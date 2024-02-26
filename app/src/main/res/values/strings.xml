@@ -2,4 +2,5 @@
     <string name="app_name">IM</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="content_for_team_intro">Hi! We are IM! Hi! We are IM! Hi! We are IM! Hi! We are IM! </string>
 </resources>
