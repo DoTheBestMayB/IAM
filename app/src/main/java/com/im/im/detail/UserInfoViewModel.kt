@@ -13,21 +13,21 @@ class UserInfoViewModel: ViewModel() {
     private val userInfo: Map<String, UserInfo> = mapOf(
         "김민수" to UserInfo(
             name = "김민수",
-            picture = "ferri",
+            picture = "😀",
             shortIntroduction = "안녕하세요 저는 김민수 입니다. 안녕하세요 저는 김민수 입니다. 안녕하세요 저는 김민수 입니다. 안녕하세요 저는 김민수 입니다. 안녕하세요 저는 김민수 입니다. ",
             introduction = "efficiantur",
             role = Role.LEADER
         ),
         "Flora Wood" to UserInfo(
-            name = "Flora Wood",
-            picture = "detracto",
+            name = "Flora Wood Flora Wood Flora Wood",
+            picture = "😅",
             shortIntroduction = "alterum alterum alterum alterum alterum alterum alterum alterum alterum alterum alterum ",
             introduction = "egestas",
             role = Role.MEMBER,
         ),
         "Felicia Key" to UserInfo(
             name = "Felicia Key",
-            picture = "senectus",
+            picture = "😎",
             shortIntroduction = "neque",
             introduction = "graeci",
             role = Role.LEADER
